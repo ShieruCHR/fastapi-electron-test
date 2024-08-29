@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder -wl"
+    "build": "electron-builder"
   },
   "build": {
     "appId": "com.shieru_lab.testapp",
@@ -16,10 +16,18 @@
     },
     "files": [
       "backend/dist/backend",
+      "backend/dist/backend.exe",
       "main.js",
       "index.html",
       "renderer.js"
-    ]
+    ],
+    "extraFiles": {
+      "from": "backend/dist/",
+      "to": "lib/",
+      "filter": [
+        "**/**"
+      ]
+    }
   },
   "author": "Shieru",
   "license": "ISC",
