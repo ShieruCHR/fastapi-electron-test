@@ -1,0 +1,14 @@
+<body>
+  <h1>Hello world!</h1>
+  <p id="data"></p>
+  <script>
+    async function fetchData() {
+      const response = await fetch("http://localhost:8000/");
+      const data = await response.json();
+      return data;
+    }
+    fetchData().then((data) => {
+      document.getElementById("data").innerText = data["message"];
+    });
+  </script>
+</body>
